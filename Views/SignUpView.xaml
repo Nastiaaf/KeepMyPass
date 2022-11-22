@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="KeepMyPass.Views.SignUpView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KeepMyPass.Views"
+      mc:Ignorable="d"
+      xmlns:vm="clr-namespace:KeepMyPass.ViewModels"
+      xmlns:assist="clr-namespace:KeepMyPass.Assistants"
+      d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="6*" />
+        </Grid.RowDefinitions>
+        <Viewbox Stretch="Uniform"
+                 Grid.Row="0"
+                 Grid.Column="1">
+            <TextBlock Text="Sign Up"
+                       HorizontalAlignment="Center" />
+        </Viewbox>
+        <Grid Grid.Row="1"
+              Grid.Column="1"
+              Margin="50 45 50 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="Email:"
+                       FontSize="20"
+                       Grid.Column="0"
+                       Grid.Row="0" />
+            <TextBox Text="{Binding NewEmail, UpdateSourceTrigger=PropertyChanged}"
+                     Grid.Column="1"
+                     Grid.Row="0" />
+            <TextBlock Text="Password:"
+                       FontSize="20"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       Margin="0 15 0 0" />
+            <PasswordBox x:Name="PasswordBox1" assist:PasswordBoxAssistant.BindPassword="true" assist:PasswordBoxAssistant.BoundPassword="{Binding Path=NewPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Grid.Column="1"
+                         Grid.Row="1"
+                         Margin="0 15 0 0" />
+            <TextBlock Text="Repeat password:"
+                       FontSize="20"
+                       Grid.Column="0"
+                       Grid.Row="2"
+                       Margin="0 15 0 0" />
+            <PasswordBox x:Name="PasswordBox2"
+assist:PasswordBoxAssistant.BindPassword="true" assist:PasswordBoxAssistant.BoundPassword="{Binding Path=NewPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Grid.Column="1"
+                         Grid.Row="2"
+                         Margin="0 15 0 0" />
+            <Button Content="Sign Up"
+                    Command="{Binding SignUpCommand}"
+                    Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    Margin="0 25 0 0" />
+            <TextBlock Grid.Row="4"
+                       Margin="0 15 0 0"
+                       HorizontalAlignment="Center"
+                       Grid.ColumnSpan="2">
+                <Run>Have an account? </Run>
+                <Hyperlink Command="{Binding BackCommand}">
+                    <TextBlock Text="Sign in" />
+                </Hyperlink>
+            </TextBlock>
+
+        </Grid>
+    </Grid>
+</UserControl>
