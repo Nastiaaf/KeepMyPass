@@ -1,7 +1,9 @@
-﻿using Prism.Commands;
+﻿using KeepMyPass.Data;
+using Prism.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -114,7 +116,16 @@ namespace KeepMyPass.ViewModels
 
         private void SignUpNewUser()
         {
-            
+            //User user = new User(NewEmail, NewPassword);
+            //HttpStatusCode status = _srv.AddUser(user);
+            //if (status == HttpStatusCode.OK)
+            //{
+
+            //}
+            //else
+            //{
+            //    throw new Exception(status.ToString());
+            //}
         }
 
     }
